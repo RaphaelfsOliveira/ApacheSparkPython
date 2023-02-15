@@ -136,4 +136,5 @@ dmypy.json
 
 # Files
 *.csv
+*.zip
 datalake/
