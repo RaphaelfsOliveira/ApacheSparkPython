@@ -133,3 +133,7 @@ dmypy.json
 
 # Macos
 .DS_Store
+
+# Files
+*.csv
+datalake/
