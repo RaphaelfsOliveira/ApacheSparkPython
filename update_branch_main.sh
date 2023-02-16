@@ -1,6 +1,9 @@
 #!/bin/bash
 echo '\n'
-echo 'add and commit all code \n'
+echo '#########################'
+echo 'add and commit all code #\n'
+echo '#########################'
+
 git add .; git commit -m '.'; git push; git status
 
 echo '\n'
