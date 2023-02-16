@@ -1,7 +1,8 @@
 #!/bin/bash
-
-echo 'add and commit all code\n\n'
+echo '\n'
+echo 'add and commit all code \n'
 git add .; git commit -m '.'; git push; git status
 
-echo 'update branch main'
+echo '\n'
+echo 'update branch main \n'
 git checkout main; git merge dev; git push; git checkout dev
