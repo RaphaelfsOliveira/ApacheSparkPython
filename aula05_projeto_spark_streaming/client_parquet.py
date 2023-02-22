@@ -1,5 +1,6 @@
 from pyspark.sql import SparkSession
 import shutil
+
 PATH = '../datalake/twitter'
 
 for item in [f'{PATH}/parquet/', f'{PATH}/check/']:
