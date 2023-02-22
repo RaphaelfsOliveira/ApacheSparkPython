@@ -15,14 +15,15 @@ BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAEWIUAEAAAAAU49qkkegQd58kO0B%2FIB77iclVLg%3D
 keyword = 'política'
 
 class GetTweets(tweepy.StreamingClient):
+
     def on_tweet(self, tweet):
         print(tweet.text)
-        print("="*50)
-        connection.send(tweet.text.encode('utf-8', 'ignore'))
+        print("=" * 50)
+        connection.send(tweet.text.encode('latin1', 'ignore'))
 
-printer = GetTweets(BEARER_TOKEN)
-printer.add_rules(tweepy.StreamRule(keyword))
-printer.filter()
+client = GetTweets(BEARER_TOKEN)
+client.add_rules(tweepy.StreamRule(keyword))
+client.filter()
 
 
 connection.close()
