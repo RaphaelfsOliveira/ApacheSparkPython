@@ -25,7 +25,9 @@ messages = [
 
 for message in messages:
     message = bytes(message, 'utf-8')
+    print(f"Enviando mensagem {message}")
     conn.send(message)
     time.sleep(4)
 
+print(f'Fechando conexão listener')
 conn.close()
