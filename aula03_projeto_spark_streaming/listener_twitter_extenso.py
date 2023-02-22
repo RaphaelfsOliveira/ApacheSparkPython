@@ -19,12 +19,12 @@ BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAEWIUAEAAAAAU49qkkegQd58kO0B%2FIB77iclVLg%3D
 keyword = "futebol"
 url_rules = "https://api.twitter.com/2/tweets/search/stream/rules"
 
-header = headers = {'Authorization': f"Bearer {BEARER_TOKEN}"}
-response = requests.post(url_rules, headers=header, json = {"add": [{"value": keyword}]})
+headers = {'Authorization': f"Bearer {BEARER_TOKEN}"}
+response = requests.post(url_rules, headers=headers, json = {"add": [{"value": keyword}]})
 
 #GET PARA PEGAR OS DADOS
 url = "https://api.twitter.com/2/tweets/search/stream"
-response = requests.get(url, headers=header, stream=True)
+response = requests.get(url, headers=headers, stream=True)
 
 if response.status_code == 200:
     for item in response.iter_lines():

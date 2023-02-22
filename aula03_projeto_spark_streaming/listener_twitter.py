@@ -11,7 +11,7 @@ s.listen(5)
 connection, address = s.accept()
 print(f"Recebendo solicitação de {address}")
 
-token = 'AAAAAAAAAAAAAAAAAAAAAEWIUAEAAAAAU49qkkegQd58kO0B%2FIB77iclVLg%3DUFuFnFZiMhocJdBIZQ1n7ygcqE8l4CeXvpMuzjZPziMWY5jhaE'
+BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAEWIUAEAAAAAU49qkkegQd58kO0B%2FIB77iclVLg%3DUFuFnFZiMhocJdBIZQ1n7ygcqE8l4CeXvpMuzjZPziMWY5jhaE'
 keyword = "futebol"
 
 class GetTweets(tweepy.StreamingClient):
@@ -20,7 +20,7 @@ class GetTweets(tweepy.StreamingClient):
         print("="*50)
         connection.send(tweet.text.encode('utf-8', 'ignore'))
 
-printer = GetTweets(token)
+printer = GetTweets(BEARER_TOKEN)
 printer.add_rules(tweepy.StreamRule(keyword))
 printer.filter()
 
