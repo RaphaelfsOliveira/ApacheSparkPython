@@ -19,7 +19,7 @@ class GetTweets(tweepy.StreamingClient):
     def on_tweet(self, tweet):
         print(tweet.text)
         print("=" * 50)
-        connection.send(tweet.text.encode('latin1', 'ignore'))
+        connection.send(tweet.text.encode('utf-8', 'ignore'))
 
 client = GetTweets(BEARER_TOKEN)
 client.add_rules(tweepy.StreamRule(keyword))
