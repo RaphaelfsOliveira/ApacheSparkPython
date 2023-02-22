@@ -12,15 +12,13 @@ dflines = spark.readStream\
     .option('port', 9009) \
     .load()
 
-words = dflines.select(
-    f.explode(
-        f.split(dflines.value, ' ')
-    ).alias('word')
-)
+# explode separa em linhas 
+# split separar palavra por palavra
+dfWords = dflines.select(f.explode(f.split(dflines.value, ' ')).alias('word'))
 
-wordCounts = words.groupBy('word').count()
+dfWordCounts = dfWords.groupBy('word').count()
 
-query = wordCounts.writeStream \
+query = dfWordCounts.writeStream \
     .outputMode('complete') \
     .format('console') \
     .start()
