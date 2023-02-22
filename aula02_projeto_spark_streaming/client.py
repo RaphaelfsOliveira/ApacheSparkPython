@@ -11,4 +11,4 @@ while True:
     data = s.recv(1024)
     print(data.decode("utf-8"))
 
-    # time.sleep(2)
+    time.sleep(2)
