@@ -6,15 +6,15 @@ spark = SparkSession.builder\
     .appName('SparkStreaming')\
     .getOrCreate()
 
-lines = spark.readStream\
+dflines = spark.readStream\
     .format('socket')\
     .option('host', 'localhost')\
     .option('port', 9009) \
     .load()
 
-words = lines.select(
+words = dflines.select(
     f.explode(
-        f.split(lines.value, ' ')
+        f.split(dflines.value, ' ')
     ).alias('word')
 )
 

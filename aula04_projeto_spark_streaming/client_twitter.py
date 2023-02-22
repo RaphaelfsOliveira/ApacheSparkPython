@@ -5,13 +5,13 @@ spark = SparkSession.builder\
     .appName('SparkStreaming')\
     .getOrCreate()
 
-lines = spark.readStream\
+dflines = spark.readStream\
     .format('socket')\
     .option('host', 'localhost')\
     .option('port', 9009) \
     .load()
 
-query = lines.writeStream \
+query = dflines.writeStream \
     .outputMode('append') \
     .format('console') \
     .start()
