@@ -12,13 +12,15 @@ s.listen(5)
 connection, address = s.accept()
 print(f"Recebendo solicitação de {address}")
 
-# BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAGxoUwEAAAAAVVduJAZPY3NUWDIG8rm1K5LbCmo%3DKnHVHkK5G3MRHBjp6S7LW3b3gWLKkCPqLRPa5MKylSboAFijBw'
-BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAADL1cQEAAAAAb1xn7jxLq1cQeTKOSxL76f7tnUA%3DLKnGz17VYV2WDimgb7j4sN5kzBwhg5dBYIbay6AcbPpcRnxJOp'
+# BEARER_TOKEN = 'xxx'
+BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAEWIUAEAAAAAU49qkkegQd58kO0B%2FIB77iclVLg%3DUFuFnFZiMhocJdBIZQ1n7ygcqE8l4CeXvpMuzjZPziMWY5jhaE'
+
 # POST PARA O RULES PARA DEFINIR O QUE VAI BUSCAR
 keyword = "futebol"
 url_rules = "https://api.twitter.com/2/tweets/search/stream/rules"
-header = headers={'Authorization': f"Bearer {BEARER_TOKEN}"}
-response = requests.post(url_rules,headers=header, json ={"add": [{"value": keyword}]})
+
+header = headers = {'Authorization': f"Bearer {BEARER_TOKEN}"}
+response = requests.post(url_rules, headers=header, json = {"add": [{"value": keyword}]})
 
 #GET PARA PEGAR OS DADOS
 url = "https://api.twitter.com/2/tweets/search/stream"
