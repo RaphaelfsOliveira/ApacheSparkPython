@@ -12,7 +12,7 @@ connection, address = s.accept()
 print(f"Recebendo solicitação de {address}")
 
 BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAEWIUAEAAAAAU49qkkegQd58kO0B%2FIB77iclVLg%3DUFuFnFZiMhocJdBIZQ1n7ygcqE8l4CeXvpMuzjZPziMWY5jhaE'
-keyword = 'política'
+keyword = 'politica'
 
 class GetTweets(tweepy.StreamingClient):
 
