@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.appName("SparkStreaming").getOrCreate()
+
 lines = spark.readStream\
     .format("socket")\
     .option("host", "localhost")\
