@@ -28,6 +28,7 @@ share/python-wheels/
 MANIFEST
 spark_venv/
 .spark_venv/
+.spk_venv
 spark-3.1.2-bin-hadoop2.7/
 
 # PyInstaller
