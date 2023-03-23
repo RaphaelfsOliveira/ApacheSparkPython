@@ -1,10 +1,11 @@
 from pyspark.sql import SparkSession
 import shutil
 
-PATH = '../datalake/twitter'
+PATH = './datalake/twitter'
 
 for item in [f'{PATH}/parquet/', f'{PATH}/check/']:
     try:
+        print(item)
         shutil.rmtree(item)
     except OSError as err:
         print(f'Erro: {err.strerror}')
@@ -25,7 +26,7 @@ query = dfTweets.writeStream\
     .option('encoding', 'utf-8')\
     .format('parquet')\
     .option('path', f'{PATH}/parquet/')\
-    .option('checkpointLocation', f'{PATH}/check')\
+    .option('checkpointLocation', f'{PATH}/check/')\
     .start()
 
 query.awaitTermination()
