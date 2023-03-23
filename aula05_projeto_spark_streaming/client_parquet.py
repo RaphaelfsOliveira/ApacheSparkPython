@@ -1,6 +1,8 @@
 from pyspark.sql import SparkSession
 import shutil
 
+HOST = '127.0.0.1'
+PORT = 9009
 PATH = '../datalake/twitter'
 
 for item in [f'{PATH}/parquet/', f'{PATH}/check/']:
@@ -16,15 +18,15 @@ spark = SparkSession.builder\
 
 dfTweets = spark.readStream\
     .format('socket')\
-    .option('host', 'localhost')\
-    .option('port', 9009)\
+    .option('host', HOST)\
+    .option('port', PORT)\
     .load()
 
 query = dfTweets.writeStream\
     .outputMode('append')\
     .option('encoding', 'utf-8')\
-    .format('parquet')\
-    .option('path', f'{PATH}/parquet/')\
+    .format('csv')\
+    .option('path', f'{PATH}/parquet')\
     .option('checkpointLocation', f'{PATH}/check')\
     .start()
 
