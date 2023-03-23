@@ -5,7 +5,6 @@ PATH = './datalake/twitter'
 
 for item in [f'{PATH}/parquet/', f'{PATH}/check/']:
     try:
-        print(item)
         shutil.rmtree(item)
     except OSError as err:
         print(f'Erro: {err.strerror}')
